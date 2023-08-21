@@ -1,6 +1,7 @@
 #version 300 core
 
 precision mediump float;
+// Ouput data
 out vec3 color;
 
 void main() {

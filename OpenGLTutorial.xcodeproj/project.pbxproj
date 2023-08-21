@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EC4A2E62A935DE0003F4F06 /* Tutorial3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4A2E52A935DE0003F4F06 /* Tutorial3ViewController.swift */; };
+		1EC4A2E82A935EF0003F4F06 /* Array+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4A2E72A935EF0003F4F06 /* Array+Size.swift */; };
+		1EC4A2EA2A935EFC003F4F06 /* String+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4A2E92A935EFC003F4F06 /* String+File.swift */; };
+		1EC4A2EC2A935F6E003F4F06 /* LoadShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4A2EB2A935F6E003F4F06 /* LoadShader.swift */; };
+		1EC4A2EE2A936075003F4F06 /* SimpleTransform.vertexshader in Resources */ = {isa = PBXBuildFile; fileRef = 1EC4A2ED2A936075003F4F06 /* SimpleTransform.vertexshader */; };
+		1EC4A2F22A9360B3003F4F06 /* SingleColor.fragmentshader in Resources */ = {isa = PBXBuildFile; fileRef = 1EC4A2F12A9360B3003F4F06 /* SingleColor.fragmentshader */; };
 		1EE850F82A8EFA4600D30773 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE850F72A8EFA4600D30773 /* AppDelegate.swift */; };
 		1EE850FA2A8EFA4600D30773 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE850F92A8EFA4600D30773 /* SceneDelegate.swift */; };
-		1EE850FC2A8EFA4600D30773 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE850FB2A8EFA4600D30773 /* ViewController.swift */; };
+		1EE850FC2A8EFA4600D30773 /* Tutorial2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE850FB2A8EFA4600D30773 /* Tutorial2ViewController.swift */; };
 		1EE850FF2A8EFA4600D30773 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EE850FD2A8EFA4600D30773 /* Main.storyboard */; };
 		1EE851012A8EFA4700D30773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EE851002A8EFA4700D30773 /* Assets.xcassets */; };
 		1EE851042A8EFA4700D30773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EE851022A8EFA4700D30773 /* LaunchScreen.storyboard */; };
@@ -38,10 +44,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EC4A2E52A935DE0003F4F06 /* Tutorial3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial3ViewController.swift; sourceTree = "<group>"; };
+		1EC4A2E72A935EF0003F4F06 /* Array+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Size.swift"; sourceTree = "<group>"; };
+		1EC4A2E92A935EFC003F4F06 /* String+File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+File.swift"; sourceTree = "<group>"; };
+		1EC4A2EB2A935F6E003F4F06 /* LoadShader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadShader.swift; sourceTree = "<group>"; };
+		1EC4A2ED2A936075003F4F06 /* SimpleTransform.vertexshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = SimpleTransform.vertexshader; sourceTree = "<group>"; };
+		1EC4A2F12A9360B3003F4F06 /* SingleColor.fragmentshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = SingleColor.fragmentshader; sourceTree = "<group>"; };
 		1EE850F42A8EFA4600D30773 /* OpenGLTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EE850F72A8EFA4600D30773 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EE850F92A8EFA4600D30773 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1EE850FB2A8EFA4600D30773 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1EE850FB2A8EFA4600D30773 /* Tutorial2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial2ViewController.swift; sourceTree = "<group>"; };
 		1EE850FE2A8EFA4600D30773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EE851002A8EFA4700D30773 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EE851032A8EFA4700D30773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,6 +92,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EC4A2E32A935D34003F4F06 /* Tutorial2 */ = {
+			isa = PBXGroup;
+			children = (
+				1EE851332A8F58FE00D30773 /* SimpleFragmentShader.fragmentshader */,
+				1EE851312A8F58F200D30773 /* SimpleVertexShader.vertexshader */,
+				1EE850FB2A8EFA4600D30773 /* Tutorial2ViewController.swift */,
+			);
+			path = Tutorial2;
+			sourceTree = "<group>";
+		};
+		1EC4A2E42A935D4E003F4F06 /* Tutorial3 */ = {
+			isa = PBXGroup;
+			children = (
+				1EC4A2ED2A936075003F4F06 /* SimpleTransform.vertexshader */,
+				1EC4A2F12A9360B3003F4F06 /* SingleColor.fragmentshader */,
+				1EC4A2E52A935DE0003F4F06 /* Tutorial3ViewController.swift */,
+			);
+			path = Tutorial3;
+			sourceTree = "<group>";
+		};
 		1EE850EB2A8EFA4600D30773 = {
 			isa = PBXGroup;
 			children = (
@@ -104,14 +136,16 @@
 			isa = PBXGroup;
 			children = (
 				1EE850F72A8EFA4600D30773 /* AppDelegate.swift */,
+				1EC4A2E72A935EF0003F4F06 /* Array+Size.swift */,
 				1EE851002A8EFA4700D30773 /* Assets.xcassets */,
 				1EE851052A8EFA4700D30773 /* Info.plist */,
 				1EE851022A8EFA4700D30773 /* LaunchScreen.storyboard */,
 				1EE850FD2A8EFA4600D30773 /* Main.storyboard */,
 				1EE850F92A8EFA4600D30773 /* SceneDelegate.swift */,
-				1EE850FB2A8EFA4600D30773 /* ViewController.swift */,
-				1EE851312A8F58F200D30773 /* SimpleVertexShader.vertexshader */,
-				1EE851332A8F58FE00D30773 /* SimpleFragmentShader.fragmentshader */,
+				1EC4A2E92A935EFC003F4F06 /* String+File.swift */,
+				1EC4A2E32A935D34003F4F06 /* Tutorial2 */,
+				1EC4A2E42A935D4E003F4F06 /* Tutorial3 */,
+				1EC4A2EB2A935F6E003F4F06 /* LoadShader.swift */,
 			);
 			path = OpenGLTutorial;
 			sourceTree = "<group>";
@@ -238,8 +272,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EE851042A8EFA4700D30773 /* LaunchScreen.storyboard in Resources */,
+				1EC4A2F22A9360B3003F4F06 /* SingleColor.fragmentshader in Resources */,
 				1EE851322A8F58F200D30773 /* SimpleVertexShader.vertexshader in Resources */,
 				1EE851012A8EFA4700D30773 /* Assets.xcassets in Resources */,
+				1EC4A2EE2A936075003F4F06 /* SimpleTransform.vertexshader in Resources */,
 				1EE851342A8F58FE00D30773 /* SimpleFragmentShader.fragmentshader in Resources */,
 				1EE850FF2A8EFA4600D30773 /* Main.storyboard in Resources */,
 			);
@@ -266,8 +302,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EE850FC2A8EFA4600D30773 /* ViewController.swift in Sources */,
+				1EC4A2EA2A935EFC003F4F06 /* String+File.swift in Sources */,
+				1EC4A2E82A935EF0003F4F06 /* Array+Size.swift in Sources */,
+				1EE850FC2A8EFA4600D30773 /* Tutorial2ViewController.swift in Sources */,
 				1EE850F82A8EFA4600D30773 /* AppDelegate.swift in Sources */,
+				1EC4A2EC2A935F6E003F4F06 /* LoadShader.swift in Sources */,
+				1EC4A2E62A935DE0003F4F06 /* Tutorial3ViewController.swift in Sources */,
 				1EE850FA2A8EFA4600D30773 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
