@@ -19,6 +19,10 @@ class Tutorial2ViewController: GLKViewController {
     private var programID: GLuint = 0
     
     private var effect = GLKBaseEffect()
+    
+    deinit {
+        tearDownGL()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +68,18 @@ private extension Tutorial2ViewController {
                          vertexBufferData,
                          GLenum(GL_STATIC_DRAW))
         }
+    }
+    
+    func tearDownGL() {
+        EAGLContext.setCurrent(context)
+        
+        glDeleteBuffers(1, &vertexArrayID)
+        glDeleteBuffers(1, &vertexbuffer)
+        glDeleteProgram(programID)
+        
+        EAGLContext.setCurrent(nil)
+        
+        context = nil
     }
 }
 
