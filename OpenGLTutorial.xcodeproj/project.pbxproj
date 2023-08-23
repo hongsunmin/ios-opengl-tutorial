@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EAE96992A95DD41003CBB08 /* Tutorial4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAE96982A95DD41003CBB08 /* Tutorial4ViewController.swift */; };
+		1EAE969B2A95E790003CBB08 /* TransformVertexShader.vertexshader in Resources */ = {isa = PBXBuildFile; fileRef = 1EAE969A2A95E790003CBB08 /* TransformVertexShader.vertexshader */; };
+		1EAE969D2A95E7C1003CBB08 /* ColorFragmentShader.fragmentshader in Resources */ = {isa = PBXBuildFile; fileRef = 1EAE969C2A95E7C1003CBB08 /* ColorFragmentShader.fragmentshader */; };
 		1EC4A2E62A935DE0003F4F06 /* Tutorial3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4A2E52A935DE0003F4F06 /* Tutorial3ViewController.swift */; };
 		1EC4A2E82A935EF0003F4F06 /* Array+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4A2E72A935EF0003F4F06 /* Array+Size.swift */; };
 		1EC4A2EA2A935EFC003F4F06 /* String+File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EC4A2E92A935EFC003F4F06 /* String+File.swift */; };
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EAE96982A95DD41003CBB08 /* Tutorial4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial4ViewController.swift; sourceTree = "<group>"; };
+		1EAE969A2A95E790003CBB08 /* TransformVertexShader.vertexshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = TransformVertexShader.vertexshader; sourceTree = "<group>"; };
+		1EAE969C2A95E7C1003CBB08 /* ColorFragmentShader.fragmentshader */ = {isa = PBXFileReference; lastKnownFileType = text; path = ColorFragmentShader.fragmentshader; sourceTree = "<group>"; };
 		1EC4A2E52A935DE0003F4F06 /* Tutorial3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial3ViewController.swift; sourceTree = "<group>"; };
 		1EC4A2E72A935EF0003F4F06 /* Array+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Size.swift"; sourceTree = "<group>"; };
 		1EC4A2E92A935EFC003F4F06 /* String+File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+File.swift"; sourceTree = "<group>"; };
@@ -92,6 +98,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EAE96972A95DD19003CBB08 /* Tutorial4 */ = {
+			isa = PBXGroup;
+			children = (
+				1EAE969C2A95E7C1003CBB08 /* ColorFragmentShader.fragmentshader */,
+				1EAE969A2A95E790003CBB08 /* TransformVertexShader.vertexshader */,
+				1EAE96982A95DD41003CBB08 /* Tutorial4ViewController.swift */,
+			);
+			path = Tutorial4;
+			sourceTree = "<group>";
+		};
 		1EC4A2E32A935D34003F4F06 /* Tutorial2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,12 +156,13 @@
 				1EE851002A8EFA4700D30773 /* Assets.xcassets */,
 				1EE851052A8EFA4700D30773 /* Info.plist */,
 				1EE851022A8EFA4700D30773 /* LaunchScreen.storyboard */,
+				1EC4A2EB2A935F6E003F4F06 /* LoadShader.swift */,
 				1EE850FD2A8EFA4600D30773 /* Main.storyboard */,
 				1EE850F92A8EFA4600D30773 /* SceneDelegate.swift */,
 				1EC4A2E92A935EFC003F4F06 /* String+File.swift */,
 				1EC4A2E32A935D34003F4F06 /* Tutorial2 */,
 				1EC4A2E42A935D4E003F4F06 /* Tutorial3 */,
-				1EC4A2EB2A935F6E003F4F06 /* LoadShader.swift */,
+				1EAE96972A95DD19003CBB08 /* Tutorial4 */,
 			);
 			path = OpenGLTutorial;
 			sourceTree = "<group>";
@@ -272,11 +289,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EE851042A8EFA4700D30773 /* LaunchScreen.storyboard in Resources */,
+				1EAE969D2A95E7C1003CBB08 /* ColorFragmentShader.fragmentshader in Resources */,
 				1EC4A2F22A9360B3003F4F06 /* SingleColor.fragmentshader in Resources */,
 				1EE851322A8F58F200D30773 /* SimpleVertexShader.vertexshader in Resources */,
 				1EE851012A8EFA4700D30773 /* Assets.xcassets in Resources */,
 				1EC4A2EE2A936075003F4F06 /* SimpleTransform.vertexshader in Resources */,
 				1EE851342A8F58FE00D30773 /* SimpleFragmentShader.fragmentshader in Resources */,
+				1EAE969B2A95E790003CBB08 /* TransformVertexShader.vertexshader in Resources */,
 				1EE850FF2A8EFA4600D30773 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +328,7 @@
 				1EC4A2EC2A935F6E003F4F06 /* LoadShader.swift in Sources */,
 				1EC4A2E62A935DE0003F4F06 /* Tutorial3ViewController.swift in Sources */,
 				1EE850FA2A8EFA4600D30773 /* SceneDelegate.swift in Sources */,
+				1EAE96992A95DD41003CBB08 /* Tutorial4ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
