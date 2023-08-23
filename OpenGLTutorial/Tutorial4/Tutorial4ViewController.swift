@@ -227,7 +227,7 @@ extension Tutorial4ViewController: GLKViewControllerDelegate {
             3,                                         // size
             GLenum(GL_FLOAT),                          // type
             GLboolean(UInt8(GL_FALSE)),                // normalized?
-            GLsizei(0), // stride
+            GLsizei(0),                                // stride
             nil                                        // array buffer offset
         )
         
@@ -240,7 +240,7 @@ extension Tutorial4ViewController: GLKViewControllerDelegate {
             3,                                         // size
             GLenum(GL_FLOAT),                          // type
             GLboolean(UInt8(GL_FALSE)),                // normalized?
-            GLsizei(0), // stride
+            GLsizei(0),                                // stride
             nil                                        // array buffer offset
         )
         

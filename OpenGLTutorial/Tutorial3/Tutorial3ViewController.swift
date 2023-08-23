@@ -98,7 +98,7 @@ private extension Tutorial3ViewController {
     func tearDownGL() {
         EAGLContext.setCurrent(context)
         
-        glDeleteBuffers(1, &vertexArrayID)
+        glDeleteVertexArraysOES(1, &vertexArrayID)
         glDeleteBuffers(1, &vertexbuffer)
         glDeleteProgram(programID)
         
@@ -138,17 +138,18 @@ extension Tutorial3ViewController: GLKViewControllerDelegate {
         // 1rst attribute buffer : vertices
         let vertexAttribPosition = GLuint(GLKVertexAttrib.position.rawValue)
         glEnableVertexAttribArray(vertexAttribPosition)
+        glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexbuffer)
         glVertexAttribPointer(
             vertexAttribPosition,                      // attribute. No particular reason for 0, but must match the layout in the shader.
             3,                                         // size
             GLenum(GL_FLOAT),                          // type
             GLboolean(UInt8(GL_FALSE)),                // normalized?
-            GLsizei(MemoryLayout<GLfloat>.stride * 3), // stride
+            GLsizei(0),                                // stride
             nil                                        // array buffer offset
         )
         
         // Draw the triangle !
         glDrawArrays(GLenum(GL_TRIANGLES), 0, 3) // 3 indices starting at 0 -> 1 triangle
-        glDisableVertexAttribArray(0)
+        glDisableVertexAttribArray(vertexAttribPosition)
     }
 }

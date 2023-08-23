@@ -73,7 +73,7 @@ private extension Tutorial2ViewController {
     func tearDownGL() {
         EAGLContext.setCurrent(context)
         
-        glDeleteBuffers(1, &vertexArrayID)
+        glDeleteVertexArraysOES(1, &vertexArrayID)
         glDeleteBuffers(1, &vertexbuffer)
         glDeleteProgram(programID)
         
@@ -101,6 +101,7 @@ extension Tutorial2ViewController: GLKViewControllerDelegate {
         // 1rst attribute buffer : vertices
         let vertexAttribPosition = GLuint(GLKVertexAttrib.position.rawValue)
         glEnableVertexAttribArray(vertexAttribPosition)
+        glBindBuffer(GLenum(GL_ARRAY_BUFFER), vertexbuffer)
         glVertexAttribPointer(
             vertexAttribPosition,                      // attribute. No particular reason for 0, but must match the layout in the shader.
             3,                                         // size
