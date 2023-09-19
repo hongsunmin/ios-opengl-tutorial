@@ -1,22 +1,24 @@
 //
-//  Tutorial4ViewController.swift
+//  Tutorial5ViewController.swift
 //  OpenGLTutorial
 //
-//  Created by 201510003 on 2023/08/23.
+//  Created by 201510003 on 2023/09/18.
 //
 
 import GLKit
 
-class Tutorial4ViewController: GLKViewController {
+class Tutorial5ViewController: GLKViewController {
     
     private var context: EAGLContext?
     
     private var vertexArrayID: GLuint = 0
+    private var texture: GLuint = 0
     private var vertexbuffer: GLuint = 0
-    private var colorbuffer: GLuint = 0
+    private var uvbuffer: GLuint = 0
     private var programID: GLuint = 0
     
     private var matrixID: Int32 = 0
+    private var textureID: Int32 = 0
     
     private var mvp: GLKMatrix4?
     
@@ -28,14 +30,27 @@ class Tutorial4ViewController: GLKViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
         setupGL()
     }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
 
 
 
-private extension Tutorial4ViewController {
+private extension Tutorial5ViewController {
     
     func setupGL() {
         context = EAGLContext(api: .openGLES3)
@@ -56,8 +71,8 @@ private extension Tutorial4ViewController {
             
             // Create and compile our GLSL program from the shaders
             programID = loadShaders(
-                vertexFilePath: "TransformVertexShader1.vertexshader",
-                fragmentFilePath: "ColorFragmentShader.fragmentshader"
+                vertexFilePath: "TransformVertexShader2.vertexshader",
+                fragmentFilePath: "TextureFragmentShader.fragmentshader"
             )
             
             // Get a handle for our "MVP" uniform
@@ -70,7 +85,7 @@ private extension Tutorial4ViewController {
             
             // Camera matrix
             let view = GLKMatrix4MakeLookAt(
-                4, 3, -3, // Camera is at (4, 3, -3), in World Space
+                4, 3, 3, // Camera is at (4, 3, 3), in World Space
                 0, 0, 0, // and looks at the origin
                 0, 1, 0  // Head is up (set to 0, -1, 0 to look upside-down)
             )
@@ -79,6 +94,12 @@ private extension Tutorial4ViewController {
             let model = GLKMatrix4Identity
             // Our ModelViewProjection : multiplication of our 3 matrices
             mvp = GLKMatrix4Multiply(GLKMatrix4Multiply(projection, view), model) // Remember, matrix multiplication is the other way around
+            
+            // Load the texture using any two methods
+            texture = loadBMP_custom(imagePath: "uvtemplate.bmp")
+            
+            // Get a handle for our "myTextureSampler" uniform
+            textureID = glGetUniformLocation(programID, "myTextureSampler")
             
             // Our vertices. Three consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
             // A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
@@ -121,44 +142,44 @@ private extension Tutorial4ViewController {
                  1.0,-1.0, 1.0
             ]
             
-            // One color for each vertex. They were generated randomly.
-            let colorBufferData: [GLfloat] = [
-                0.583,  0.771,  0.014,
-                0.609,  0.115,  0.436,
-                0.327,  0.483,  0.844,
-                0.822,  0.569,  0.201,
-                0.435,  0.602,  0.223,
-                0.310,  0.747,  0.185,
-                0.597,  0.770,  0.761,
-                0.559,  0.436,  0.730,
-                0.359,  0.583,  0.152,
-                0.483,  0.596,  0.789,
-                0.559,  0.861,  0.639,
-                0.195,  0.548,  0.859,
-                0.014,  0.184,  0.576,
-                0.771,  0.328,  0.970,
-                0.406,  0.615,  0.116,
-                0.676,  0.977,  0.133,
-                0.971,  0.572,  0.833,
-                0.140,  0.616,  0.489,
-                0.997,  0.513,  0.064,
-                0.945,  0.719,  0.592,
-                0.543,  0.021,  0.978,
-                0.279,  0.317,  0.505,
-                0.167,  0.620,  0.077,
-                0.347,  0.857,  0.137,
-                0.055,  0.953,  0.042,
-                0.714,  0.505,  0.345,
-                0.783,  0.290,  0.734,
-                0.722,  0.645,  0.174,
-                0.302,  0.455,  0.848,
-                0.225,  0.587,  0.040,
-                0.517,  0.713,  0.338,
-                0.053,  0.959,  0.120,
-                0.393,  0.621,  0.362,
-                0.673,  0.211,  0.457,
-                0.820,  0.883,  0.371,
-                0.982,  0.099,  0.879
+            // Two UV coordinatesfor each vertex. They were created with Blender.
+            let uvBufferData: [GLfloat] = [
+                0.000059, 1.0-0.000004,
+                0.000103, 1.0-0.336048,
+                0.335973, 1.0-0.335903,
+                1.000023, 1.0-0.000013,
+                0.667979, 1.0-0.335851,
+                0.999958, 1.0-0.336064,
+                0.667979, 1.0-0.335851,
+                0.336024, 1.0-0.671877,
+                0.667969, 1.0-0.671889,
+                1.000023, 1.0-0.000013,
+                0.668104, 1.0-0.000013,
+                0.667979, 1.0-0.335851,
+                0.000059, 1.0-0.000004,
+                0.335973, 1.0-0.335903,
+                0.336098, 1.0-0.000071,
+                0.667979, 1.0-0.335851,
+                0.335973, 1.0-0.335903,
+                0.336024, 1.0-0.671877,
+                1.000004, 1.0-0.671847,
+                0.999958, 1.0-0.336064,
+                0.667979, 1.0-0.335851,
+                0.668104, 1.0-0.000013,
+                0.335973, 1.0-0.335903,
+                0.667979, 1.0-0.335851,
+                0.335973, 1.0-0.335903,
+                0.668104, 1.0-0.000013,
+                0.336098, 1.0-0.000071,
+                0.000103, 1.0-0.336048,
+                0.000004, 1.0-0.671870,
+                0.336024, 1.0-0.671877,
+                0.000103, 1.0-0.336048,
+                0.336024, 1.0-0.671877,
+                0.335973, 1.0-0.335903,
+                0.667969, 1.0-0.671889,
+                1.000004, 1.0-0.671847,
+                0.667979, 1.0-0.335851
             ]
             
             glGenBuffers(1, &vertexbuffer)
@@ -168,11 +189,11 @@ private extension Tutorial4ViewController {
                          vertexBufferData,
                          GLenum(GL_STATIC_DRAW))
             
-            glGenBuffers(1, &colorbuffer)
-            glBindBuffer(GLenum(GL_ARRAY_BUFFER), colorbuffer)
+            glGenBuffers(1, &uvbuffer)
+            glBindBuffer(GLenum(GL_ARRAY_BUFFER), uvbuffer)
             glBufferData(GLenum(GL_ARRAY_BUFFER),
-                         colorBufferData.size(),
-                         colorBufferData,
+                         uvBufferData.size(),
+                         uvBufferData,
                          GLenum(GL_STATIC_DRAW))
         }
     }
@@ -182,8 +203,9 @@ private extension Tutorial4ViewController {
         
         glDeleteVertexArraysOES(1, &vertexArrayID)
         glDeleteBuffers(1, &vertexbuffer)
-        glDeleteBuffers(1, &colorbuffer)
+        glDeleteBuffers(1, &uvbuffer)
         glDeleteProgram(programID)
+        glDeleteTextures(1, &texture)
         
         EAGLContext.setCurrent(nil)
         
@@ -193,7 +215,7 @@ private extension Tutorial4ViewController {
 
 
 
-extension Tutorial4ViewController: GLKViewControllerDelegate {
+extension Tutorial5ViewController: GLKViewControllerDelegate {
     
     func glkViewControllerUpdate(_ controller: GLKViewController) {
     }
@@ -218,6 +240,12 @@ extension Tutorial4ViewController: GLKViewControllerDelegate {
             glUniformMatrix4fv(matrixID, 1, GLboolean(GL_FALSE), ptr)
         }
         
+        // Bind our texture in Texture Unit 0
+        glActiveTexture(GLenum(GL_TEXTURE0))
+        glBindTexture(GLenum(GL_TEXTURE_2D), texture)
+        // Set our "myTextureSampler" sampler to use Texture Unit 0
+        glUniform1i(textureID, 0)
+        
         // 1rst attribute buffer : vertices
         let vertexAttribPosition = GLuint(GLKVertexAttrib.position.rawValue)
         glEnableVertexAttribArray(vertexAttribPosition)
@@ -231,13 +259,13 @@ extension Tutorial4ViewController: GLKViewControllerDelegate {
             nil                                        // array buffer offset
         )
         
-        // 2nd attribute buffer : colors
-        let vertexAttribColor = GLuint(GLKVertexAttrib.color.rawValue)
+        // 2nd attribute buffer : UVs
+        let vertexAttribColor = GLuint(GLKVertexAttrib.texCoord0.rawValue)
         glEnableVertexAttribArray(vertexAttribColor)
-        glBindBuffer(GLenum(GL_ARRAY_BUFFER), colorbuffer)
+        glBindBuffer(GLenum(GL_ARRAY_BUFFER), uvbuffer)
         glVertexAttribPointer(
             vertexAttribColor,                         // attribute. No particular reason for 0, but must match the layout in the shader.
-            3,                                         // size
+            2,                                         // size : U+V => 2
             GLenum(GL_FLOAT),                          // type
             GLboolean(UInt8(GL_FALSE)),                // normalized?
             GLsizei(0),                                // stride

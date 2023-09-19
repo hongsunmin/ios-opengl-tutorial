@@ -80,6 +80,26 @@
                                             <segue destination="Xnp-7h-gax" kind="show" id="yff-ew-sRJ"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="j5d-UK-OMd" style="IBUITableViewCellStyleDefault" id="a1c-EJ-zKh">
+                                        <rect key="frame" x="0.0" y="181.00000381469727" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a1c-EJ-zKh" id="uTS-vI-Cgb">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Tutorial 5 - A Textured Cube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j5d-UK-OMd">
+                                                    <rect key="frame" x="20" y="0.0" width="353" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="iYE-BU-VdD" kind="show" id="wnc-Z9-4nP"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -126,7 +146,7 @@
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y3W-6O-TVv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2063" y="-189"/>
+            <point key="canvasLocation" x="2062" y="-323"/>
         </scene>
         <!--GLKit View Controller-->
         <scene sceneID="evj-oh-5xR">
@@ -144,7 +164,7 @@
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGq-eA-hZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2062" y="476"/>
+            <point key="canvasLocation" x="2062" y="363"/>
         </scene>
         <!--GLKit View Controller-->
         <scene sceneID="QtP-tW-NlP">
@@ -162,7 +182,25 @@
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="19p-8Z-bU9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2755" y="-19"/>
+            <point key="canvasLocation" x="2785" y="-323"/>
+        </scene>
+        <!--GLKit View Controller-->
+        <scene sceneID="nqW-am-AtL">
+            <objects>
+                <glkViewController preferredFramesPerSecond="30" id="iYE-BU-VdD" customClass="Tutorial5ViewController" customModule="OpenGLTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" id="MMY-OH-nbN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bfF-kc-qKT"/>
+                        <connections>
+                            <outlet property="delegate" destination="iYE-BU-VdD" id="CY1-2c-6Hc"/>
+                        </connections>
+                    </glkView>
+                    <navigationItem key="navigationItem" id="DKO-xI-FJ9"/>
+                </glkViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N9H-kG-Zhd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2784" y="363"/>
         </scene>
     </scenes>
     <resources>
