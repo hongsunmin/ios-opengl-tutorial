@@ -70,7 +70,7 @@ private extension Tutorial4ViewController {
             
             // Camera matrix
             let view = GLKMatrix4MakeLookAt(
-                4, 3, 3, // Camera is at (4, 3, 3), in World Space
+                4, 3, -3, // Camera is at (4, 3, -3), in World Space
                 0, 0, 0, // and looks at the origin
                 0, 1, 0  // Head is up (set to 0, -1, 0 to look upside-down)
             )
@@ -84,25 +84,25 @@ private extension Tutorial4ViewController {
             // A cube has 6 faces with 2 triangles each, so this makes 6*2=12 triangles, and 12*3 vertices
             let vertexBufferData: [GLfloat] = [
                 -1.0,-1.0,-1.0,
-                 -1.0,-1.0, 1.0,
-                 -1.0, 1.0, 1.0,
+                -1.0,-1.0, 1.0,
+                -1.0, 1.0, 1.0,
                  1.0, 1.0,-1.0,
-                 -1.0,-1.0,-1.0,
-                 -1.0, 1.0,-1.0,
+                -1.0,-1.0,-1.0,
+                -1.0, 1.0,-1.0,
                  1.0,-1.0, 1.0,
-                 -1.0,-1.0,-1.0,
+                -1.0,-1.0,-1.0,
                  1.0,-1.0,-1.0,
                  1.0, 1.0,-1.0,
                  1.0,-1.0,-1.0,
-                 -1.0,-1.0,-1.0,
-                 -1.0,-1.0,-1.0,
-                 -1.0, 1.0, 1.0,
-                 -1.0, 1.0,-1.0,
+                -1.0,-1.0,-1.0,
+                -1.0,-1.0,-1.0,
+                -1.0, 1.0, 1.0,
+                -1.0, 1.0,-1.0,
                  1.0,-1.0, 1.0,
-                 -1.0,-1.0, 1.0,
-                 -1.0,-1.0,-1.0,
-                 -1.0, 1.0, 1.0,
-                 -1.0,-1.0, 1.0,
+                -1.0,-1.0, 1.0,
+                -1.0,-1.0,-1.0,
+                -1.0, 1.0, 1.0,
+                -1.0,-1.0, 1.0,
                  1.0,-1.0, 1.0,
                  1.0, 1.0, 1.0,
                  1.0,-1.0,-1.0,
@@ -112,17 +112,17 @@ private extension Tutorial4ViewController {
                  1.0,-1.0, 1.0,
                  1.0, 1.0, 1.0,
                  1.0, 1.0,-1.0,
-                 -1.0, 1.0,-1.0,
+                -1.0, 1.0,-1.0,
                  1.0, 1.0, 1.0,
-                 -1.0, 1.0,-1.0,
-                 -1.0, 1.0, 1.0,
+                -1.0, 1.0,-1.0,
+                -1.0, 1.0, 1.0,
                  1.0, 1.0, 1.0,
-                 -1.0, 1.0, 1.0,
+                -1.0, 1.0, 1.0,
                  1.0,-1.0, 1.0
             ]
             
             // One color for each vertex. They were generated randomly.
-            let colorBufferData = [
+            let colorBufferData: [GLfloat] = [
                 0.583,  0.771,  0.014,
                 0.609,  0.115,  0.436,
                 0.327,  0.483,  0.844,
@@ -171,8 +171,8 @@ private extension Tutorial4ViewController {
             glGenBuffers(1, &colorbuffer)
             glBindBuffer(GLenum(GL_ARRAY_BUFFER), colorbuffer)
             glBufferData(GLenum(GL_ARRAY_BUFFER),
-                         vertexBufferData.size(),
-                         vertexBufferData,
+                         colorBufferData.size(),
+                         colorBufferData,
                          GLenum(GL_STATIC_DRAW))
         }
     }
