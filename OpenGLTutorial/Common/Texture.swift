@@ -58,6 +58,7 @@ func loadBMP_custom(imagePath: String) -> GLuint {
     }
     
     let header = Data(bytes: buffer, count: headerSize)
+    buffer.deallocate()
     printHexDumpForBytes(bytes: header)
     if case let .success(result) = CStruct().unpack(header, format: "cc8xi4xii2xhii"),
        let result = result {
@@ -113,6 +114,7 @@ func loadBMP_custom(imagePath: String) -> GLuint {
             GLenum(GL_UNSIGNED_BYTE),
             data
         )
+        data.deallocate()
         
         // ... nice trilinear filtering ...
         glTexParameteri(GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_WRAP_S), GL_REPEAT)
